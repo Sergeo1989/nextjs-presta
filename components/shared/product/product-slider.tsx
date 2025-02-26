@@ -11,6 +11,15 @@ import {
 import ProductCard from './product-card'
 import { IProduct } from '@/lib/db/models/product.model'
 
+/**
+ * A component that displays a carousel of products. The component accepts an
+ * optional `title` prop, an array of `products` to display, and an optional
+ * `hideDetails` prop which removes the details part of the card (brand, name,
+ * rating, price). The component is used in the home page.
+ *
+ * @param {{ title?: string, products: IProduct[], hideDetails?: boolean }}
+ * @returns A JSX Element
+ */
 export default function ProductSlider({
   title,
   products,
