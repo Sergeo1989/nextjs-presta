@@ -3,9 +3,12 @@ import { HomeCarousel } from '@/components/shared/home/home-carousel'
 import data from '@/lib/data'
 import {
   getAllCategories,
+  getProductsByTag,
   getProductsForCard,
 } from '@/lib/actions/product.actions'
 import { toSlug } from '@/lib/utils'
+import { Card, CardContent } from '@/components/ui/card'
+import ProductSlider from '@/components/shared/product/product-slider'
 
 /**
  * The homepage of the e-commerce website.
@@ -76,11 +79,18 @@ export default async function HomePage() {
     },
   ]
 
+  const todaysDeals = await getProductsByTag({ tag: 'todays-deal' })
+
   return (
     <>
       <HomeCarousel items={data.carousels} />
       <div className='md:p-4 md:space-y-4 bg-border'>
         <HomeCard cards={cards} />
+        <Card className='w-full rounded-none'>
+          <CardContent className='p-4 items-center gap-3'>
+            <ProductSlider title={"Today's Deals"} products={todaysDeals} />
+          </CardContent>
+        </Card>
       </div>
     </>
   )

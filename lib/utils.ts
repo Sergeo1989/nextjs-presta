@@ -39,3 +39,30 @@ export const toSlug = (text: string): string =>
     .replace(/[^\w\s-]+/g, '')
     .replace(/\s+/g, '-')
     .replace(/^-+|-+$/g, '')
+
+const CURRENCY_FORMATTER = new Intl.NumberFormat('en-US', {
+  currency: 'USD',
+  style: 'currency',
+  minimumFractionDigits: 2,
+})
+/**
+ * Formats a number as a currency string in USD.
+ *
+ * @example
+ * formatCurrency(1234.56) // "$1,234.56"
+ */
+export function formatCurrency(amount: number) {
+  return CURRENCY_FORMATTER.format(amount)
+}
+
+const NUMBER_FORMATTER = new Intl.NumberFormat('en-US')
+/**
+ * Formats a number using the browser locale's default formatting
+ * options.
+ *
+ * @example
+ * formatNumber(1234567.89) // "1,234,567.89"
+ */
+export function formatNumber(number: number) {
+  return NUMBER_FORMATTER.format(number)
+}

@@ -81,7 +81,9 @@ body {
   }
 }
 
-
+.h2-bold {
+  @apply font-bold text-lg lg:text-xl;
+}
 
 @layer base {
   * {
