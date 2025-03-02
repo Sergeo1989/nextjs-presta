@@ -9,6 +9,7 @@ import {
 import { toSlug } from '@/lib/utils'
 import { Card, CardContent } from '@/components/ui/card'
 import ProductSlider from '@/components/shared/product/product-slider'
+import BrowsingHistoryList from '@/components/shared/browsing-history-list'
 
 /**
  * The homepage of the e-commerce website.
@@ -101,6 +102,9 @@ export default async function HomePage() {
             />
           </CardContent>
         </Card>
+      </div>
+      <div className='p-4 bg-background'>
+        <BrowsingHistoryList />
       </div>
     </>
   )
